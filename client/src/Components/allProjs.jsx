@@ -19,7 +19,7 @@ const DisplayProjs = props => {
     //     return arr;
     // }
     function fetch() {
-        axios.get("http://localhost:8000/api/projects")
+        axios.get("http://localhost:8000/projects")
         .then(res => {
             console.log(res.data.projects);
             setProjects(res.data.projects);
@@ -30,7 +30,7 @@ const DisplayProjs = props => {
         fetch();
     },[]);
     const startProj = (_id) => {
-        axios.put(`http://localhost:8000/api/project/start/${_id}`)
+        axios.put(`http://localhost:8000/projects/start/${_id}`)
         .then(res => {
             console.log(res.data.projects);
             fetch();
@@ -38,7 +38,7 @@ const DisplayProjs = props => {
         .catch(err => console.error(err))
     }
     const completeProj = (_id) => {
-        axios.put(`http://localhost:8000/api/project/complete/${_id}`)
+        axios.put(`http://localhost:8000/projects/complete/${_id}`)
         .then(res => {
             console.log(res.data.projects);
             fetch();
@@ -46,7 +46,7 @@ const DisplayProjs = props => {
         .catch(err => console.error(err))
     }
     const deleteProj = (_id) => {
-        axios.delete(`http://localhost:8000/api/project/delete/${_id}`)
+        axios.delete(`http://localhost:8000/projects/delete/${_id}`)
         .then(res => {
             console.log(res.data.projects);
             fetch();

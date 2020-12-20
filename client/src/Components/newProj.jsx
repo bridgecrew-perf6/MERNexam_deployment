@@ -13,7 +13,7 @@ const AddProj = props => {
     const addProject = (e) => {
         e.preventDefault();
         const newProject = {project,due,status};
-        axios.post("http://localhost:8000/api/project/new" ,newProject)
+        axios.post("http://localhost:8000/projects/new" ,newProject)
         .then(res => {
             console.log(res.data.project);
             if(res.data.errors){
